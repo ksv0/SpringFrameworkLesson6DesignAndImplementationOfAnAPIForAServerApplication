@@ -1,10 +1,9 @@
 package com.example.example4sem6_rick_and_morty_rest.controller;
 
 import com.example.example4sem6_rick_and_morty_rest.model.Page;
-import com.example.example4sem6_rick_and_morty_rest.service.charactermanagementservice.ICharacterManagementService;
+import com.example.example4sem6_rick_and_morty_rest.service.charactermanagementservice.IManagementService;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @AllArgsConstructor
 public class WebController {
 
-    private ICharacterManagementService service;
+    private IManagementService service;
 
     @GetMapping("/")
     public String index() {
