@@ -1,0 +1,6 @@
+server:
+  port: 9090
+
+
+character:
+  api: https://rickandmortyapi.com/api/character

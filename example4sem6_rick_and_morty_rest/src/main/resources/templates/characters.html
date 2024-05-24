@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Персонажи</title>
+    <style>
+        .character-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .character-card {
+            border: 1px solid #ccc;
+            margin-bottom: 1rem;
+            padding: 1rem;
+        }
+
+        .character-image {
+            max-width: 200px;
+        }
+    </style>
+</head>
+<body>
+<h1>Персонажи</h1>
+<ul class="character-list">
+    <li th:each="character : ${characters}" class="character-card">
+        <h2 th:text="${character.name}"></h2>
+        <p>Статус: <span th:text="${character.status}"></span></p>
+        <p>Вид: <span th:text="${character.species}"></span></p>
+        <p>Тип: <span th:text="${character.type}"></span></p>
+        <p>Пол: <span th:text="${character.gender}"></span></p>
+        <img th:src="${character.image}" alt="Изображение персонажа" class="character-image"/>
+    </li>
+</ul>
+</body>
+</html>
