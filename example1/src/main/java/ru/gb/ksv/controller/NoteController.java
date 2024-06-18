@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.gb.ksv.model.Note;
+import ru.gb.ksv.service.FileGateway;
 import ru.gb.ksv.service.INoteService;
 
 import java.util.List;
@@ -21,10 +22,12 @@ import java.util.List;
 @RequestMapping("/notes")
 @RequiredArgsConstructor
 public class NoteController {
-    private INoteService service;
+    private final INoteService service;
+    private final FileGateway fileGateway;
 
     @PostMapping
     public ResponseEntity<Note> addNote(@RequestBody Note note) {
+        fileGateway.writeToFile(note.getHeader() + ".txt", note.toString());
         return new ResponseEntity<Note>(service.addNote(note), HttpStatus.OK);
     }
 

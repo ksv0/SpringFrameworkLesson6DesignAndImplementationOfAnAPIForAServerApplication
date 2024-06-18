@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class NoteServiceImpl implements INoteService {
-    NoteRepo repository;
+    private final NoteRepo repository;
 
     @Override
     public Note addNote(Note note) {
